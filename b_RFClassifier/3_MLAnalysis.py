@@ -162,23 +162,6 @@ def ShowWeights(Folder):
         ax[1].tick_params(axis='both', which='minor', labelsize=15)
     figname = 'RFGroupWeights1.png'
     plt.savefig(figname, dpi=300)
-    # Plot all cases
-    tAntis = np.unique(RFWeights[:, 0])
-    fig, ax = plt.subplots(1, 11, figsize=(66, 6))
-    for j, tAnti in enumerate(tAntis):
-        data = RFWeights[RFWeights[:, 0] == tAnti]
-        for i in range(4):
-            ax[j].plot(data[:, 1], data[:, 2 + i], mec=colors[i], ls='--', marker=markers[i], ms=10,
-                       mfc='none', mew='2', color=colors[i], lw=2,
-                       label=labels[i])
-            ax[j].legend(loc='best', ncol=2, fontsize=15, columnspacing=0.5)
-            ax[j].set_xlabel('N', fontsize=20)
-            ax[j].set_ylabel('Weights', fontsize=20)
-            # ax[j].set_ylim(0, 0.7)
-            ax[j].set_xticks([2, 4, 8, 16, 32, 64])
-            ax[j].set_title("tAnti={:.0f}".format(tAnti))
-    figname = 'tAnti_RFGroupWeights1.png'
-    plt.savefig(figname, dpi=300)
     return
 
 
@@ -250,23 +233,6 @@ def ShowWeightsNorm(Folder):
         ax[1].tick_params(axis='both', which='major', labelsize=15)
         ax[1].tick_params(axis='both', which='minor', labelsize=15)
     figname = 'RFGroupWeights2.png'
-    plt.savefig(figname, dpi=300)
-    # Plot all cases
-    tAntis = np.unique(RFWeights[:, 0])
-    fig, ax = plt.subplots(1, 11, figsize=(66, 6))
-    for j, tAnti in enumerate(tAntis):
-        data = RFWeights[RFWeights[:, 0] == tAnti]
-        for i in range(5):
-            ax[j].plot(data[:, 1], data[:, 2 + i], mec=colors[i], ls='--', marker=markers[i], ms=10,
-                       mfc='none', mew='2', color=colors[i], lw=2,
-                       label=labels[i])
-            ax[j].legend(loc='best', ncol=2, fontsize=15, columnspacing=0.5)
-            ax[j].set_xlabel('N', fontsize=20)
-            ax[j].set_ylabel('Weights', fontsize=20)
-            # ax[j].set_ylim(0, 0.7)
-            ax[j].set_xticks([2, 4, 8, 16, 32, 64])
-            ax[j].set_title("tAnti={:.0f}".format(tAnti))
-    figname = 'tAnti_RFGroupWeights2.png'
     plt.savefig(figname, dpi=300)
     return
 
